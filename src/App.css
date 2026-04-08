@@ -11,9 +11,9 @@ body {
 }
 
 .app {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
 .town-name {
   font-size: 1.1rem;
   font-weight: bold;
-  min-width: 8rem;
+  min-width: 14rem;
   padding-top: 0.4rem;
 }
 
@@ -68,6 +68,7 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 0.95rem;
+  width: 16rem;
 }
 
 .input-group.correct input,
