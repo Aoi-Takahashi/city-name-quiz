@@ -81,13 +81,75 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Getting Started
 
-（スキャフォールド後に以下を追記すること）
+### 依存関係のインストール
 
-- ビルド・lint・テストコマンド
-- 開発サーバーの起動方法
-- 単一テストの実行方法
-- 環境変数の設定（`.env` など）
+```bash
+pnpm install
+```
+
+### 開発サーバーの起動
+
+```bash
+pnpm dev
+```
+
+### ビルド
+
+```bash
+pnpm build
+```
+
+### Lint
+
+```bash
+pnpm lint
+```
+
+### テスト（全件）
+
+```bash
+pnpm vitest run
+```
+
+### テスト（単一ファイル）
+
+```bash
+pnpm vitest run src/utils/__tests__/quiz.test.ts
+```
+
+### テスト（ウォッチモード）
+
+```bash
+pnpm vitest
+```
+
+### 環境変数
+
+現時点で環境変数の設定は不要。
 
 ## Architecture
 
-（プロジェクト構造が確立した後に追記すること）
+```
+src/
+├── assets/
+│   └── kochi_city_towns.json   # 元データ（name / reading / district）
+├── data/
+│   └── kochiCity.ts            # Town[] としてエクスポートする町名データ
+├── types/
+│   └── index.ts                # Town 型・Oomachi ユニオン型
+├── utils/
+│   ├── quiz.ts                 # pickRandomTowns / gradeAnswer
+│   └── __tests__/
+│       └── quiz.test.ts        # ユーティリティ関数のユニットテスト
+├── test/
+│   └── setup.ts                # Vitest セットアップ（jest-dom）
+├── App.tsx                     # クイズ画面（QuizItem + App）
+└── App.css                     # スタイル
+```
+
+### データフロー
+
+1. `kochiCityTowns`（419件）から `pickRandomTowns` で20件をランダム抽出
+2. `App` が20問分の状態（解答・採点結果）を管理
+3. 採点ボタン押下時に `gradeAnswer` で読み方・大街をそれぞれ判定
+4. `QuizItem` が判定結果に応じて正解／不正解エフェクトを表示
