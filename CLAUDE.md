@@ -4,17 +4,90 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`city-name-quiz` is a quiz application about city names. The project is in its initial state — no source code or tooling has been added yet.
+`city-name-quiz` は高知県高知市内の町名と、その町名が属する「大街」を答える町名テストWebアプリ。
+
+## 用語定義
+
+- **町名**：高知市内に存在する町名
+- **大街**：町名が属する街のエリア
+
+### 大街一覧
+
+| 大街 | 読み |
+|------|------|
+| 下知 | しもぢ |
+| 五台山 | ごだいさん |
+| 高須 | たかす |
+| 大津 | おおつ |
+| 介良 | けら |
+| 三里 | みさと |
+| 初月 | みかづき |
+| 鏡 | かがみ |
+| 朝倉 | あさくら |
+| 旭街 | あさひまち |
+| 鴨田 | かもだ |
+| 潮江 | うしおえ |
+| 長浜 | ながはま |
+| 御畳瀬 | みませ |
+| 浦戸 | うらど |
+| 春野 | はるの |
+| 秦 | はだ |
+| 土佐山 | とさやま |
+| 布師田 | ぬのしだ |
+| 一宮 | いっく |
+| 南街 | みなみまち |
+| 北街 | きたまち |
+| 江ノ口 | えのくち |
+| 上街 | かみまち |
+| 高知街 | こうちまち |
+| 小高坂 | こだかさか |
+
+参考資料：
+- https://www.city.kochi.kochi.jp/uploaded/attachment/51589.pdf
+- https://www.city.kochi.kochi.jp/uploaded/life/135132_442838_misc.pdf
+
+## 機能要件
+
+- 町名一覧からランダムに20件の町名を抽出して出題する
+- 利用者は入力フォームから「町名の読み方」と「大街」を解答する
+- 大街の入力はプルダウン形式
+- 正解時：正解エフェクトを表示
+- 不正解時：不正解箇所の下部に正解を表示し、不正解エフェクトを表示
+
+出題形式例：
+```
+問題. 以下の町名の読み方と町名が属する大街を解答しなさい
+　唐人町　<町名入力欄>　<大街入力プルダウン>
+```
+
+## 技術スタック
+
+- 言語：TypeScript + React
+- デプロイ：Vercel
+
+## 開発規約
+
+### 実装方針
+- 単一責任の原則に従い、処理は簡潔明瞭に関数に切り出す
+- 関数を切り出す際は必ずテストを先に定義してからコードを書く（テスト駆動）
+- 許可なく既存の実装をリファクタリングしない
+
+### 編集禁止ファイル
+許可なく以下のファイルを編集しないこと：
+- `README.md`
+
+### SEO対応
+- 公開するWebアプリは検索クローラーにインデックスされないよう対応すること（`noindex` 設定必須）
 
 ## Getting Started
 
-This repository currently contains only a README. Once the tech stack is chosen and scaffolded, update this file with:
+（スキャフォールド後に以下を追記すること）
 
-- Build, lint, and test commands
-- How to run the dev server
-- How to run a single test
-- Any environment setup required (e.g., `.env` variables)
+- ビルド・lint・テストコマンド
+- 開発サーバーの起動方法
+- 単一テストの実行方法
+- 環境変数の設定（`.env` など）
 
 ## Architecture
 
-To be documented once the project structure is established.
+（プロジェクト構造が確立した後に追記すること）
