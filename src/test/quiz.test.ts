@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { pickRandomTowns } from '../quiz'
-import { gradeAnswer } from '../quiz'
-import type { Town } from '../../types'
+import { pickRandomTowns } from '../utils/quiz'
+import { gradeAnswer } from '../utils/quiz'
+import type { Town } from '../types'
 
 const sampleTowns: Town[] = Array.from({ length: 30 }, (_, i) => ({
   name: `町名${i}`,
