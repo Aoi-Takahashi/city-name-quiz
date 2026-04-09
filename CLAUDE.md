@@ -6,61 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `city-name-quiz` は高知県高知市内の町名と、その町名が属する「大街」を答える町名テストWebアプリ。
 
-## 用語定義
-
-- **町名**：高知市内に存在する町名
-- **大街**：町名が属する街のエリア
-
-### 大街一覧
-
-| 大街   | 読み       |
-| ------ | ---------- |
-| 下知   | しもぢ     |
-| 五台山 | ごだいさん |
-| 高須   | たかす     |
-| 大津   | おおつ     |
-| 介良   | けら       |
-| 三里   | みさと     |
-| 初月   | みかづき   |
-| 鏡     | かがみ     |
-| 朝倉   | あさくら   |
-| 旭街   | あさひまち |
-| 鴨田   | かもだ     |
-| 潮江   | うしおえ   |
-| 長浜   | ながはま   |
-| 御畳瀬 | みませ     |
-| 浦戸   | うらど     |
-| 春野   | はるの     |
-| 秦     | はだ       |
-| 土佐山 | とさやま   |
-| 布師田 | ぬのしだ   |
-| 一宮   | いっく     |
-| 南街   | みなみまち |
-| 北街   | きたまち   |
-| 江ノ口 | えのくち   |
-| 上街   | かみまち   |
-| 高知街 | こうちまち |
-| 小高坂 | こだかさか |
-
-参考資料：
-
-- https://www.city.kochi.kochi.jp/uploaded/attachment/51589.pdf
-- https://www.city.kochi.kochi.jp/uploaded/life/135132_442838_misc.pdf
-
-## 機能要件
-
-- 町名一覧からランダムに20件の町名を抽出して出題する
-- 利用者は入力フォームから「町名の読み方」と「大街」を解答する
-- 大街の入力はプルダウン形式
-- 正解時：正解エフェクトを表示
-- 不正解時：不正解箇所の下部に正解を表示し、不正解エフェクトを表示
-
-出題形式例：
-
-```
-問題. 以下の町名の読み方と町名が属する大街を解答しなさい
-　唐人町　<町名入力欄>　<大街入力プルダウン>
-```
+仕様の詳細は [SPEC.md](./SPEC.md) を参照。
 
 ## 技術スタック
 
@@ -120,7 +66,7 @@ pnpm vitest run
 ### テスト（単一ファイル）
 
 ```bash
-pnpm vitest run src/utils/__tests__/quiz.test.ts
+pnpm vitest run src/test/quiz.test.ts
 ```
 
 ### テスト（ウォッチモード）
@@ -144,11 +90,10 @@ src/
 ├── types/
 │   └── index.ts                # Town 型・Oomachi ユニオン型
 ├── utils/
-│   ├── quiz.ts                 # pickRandomTowns / gradeAnswer
-│   └── __tests__/
-│       └── quiz.test.ts        # ユーティリティ関数のユニットテスト
+│   └── quiz.ts                 # pickRandomTowns / gradeAnswer
 ├── test/
-│   └── setup.ts                # Vitest セットアップ（jest-dom）
+│   ├── setup.ts                # Vitest セットアップ（jest-dom）
+│   └── quiz.test.ts            # ユーティリティ関数のユニットテスト
 ├── App.tsx                     # クイズ画面（QuizItem + App）
 └── App.css                     # スタイル
 ```
