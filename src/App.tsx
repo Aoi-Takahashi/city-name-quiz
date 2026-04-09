@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>高知市 町名テスト</h1>
+      <h1>高知市 町名クイズ</h1>
       <p className="instruction">以下の町名の読み方と、町名が属する大街を解答しなさい。</p>
 
       <div className="quiz-list">
