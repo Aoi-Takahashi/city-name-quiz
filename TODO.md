@@ -51,21 +51,21 @@
   - 単一テスト実行方法
 - [x] `CLAUDE.md` の Architecture セクション記入
 
-### 9. Vercel デプロイ ⬜
+### 9. Vercel デプロイ ✅
 
-- [ ] Vercel プロジェクト作成・連携
-- [ ] デプロイ確認
+- [x] Vercel プロジェクト作成・連携
+- [x] デプロイ確認
 
-### 10. favicon 設定 ⬜
+### 10. favicon 設定 ✅
 
-- [ ] favicon 画像作成・配置
-- [ ] `index.html` の `<link rel="icon">` を更新
+- [x] favicon 画像作成・配置
+- [x] `index.html` の `<link rel="icon">` を更新
 
-### 11. ドキュメント整理 ⬜
+### 11. ドキュメント整理 ✅
 
-- [ ] `CLAUDE.md` の仕様関連内容を `SPEC.md` に移行
-- [ ] `CLAUDE.md` は開発ガイド（コマンド・規約）のみに整理
+- [x] `CLAUDE.md` の仕様関連内容を `SPEC.md` に移行
+- [x] `CLAUDE.md` は開発ガイド（コマンド・規約）のみに整理
 
-### 12. FIXME 修正 ⬜
+### 12. FIXME 修正 ✅
 
-- [ ] `src/constants.ts` 内の `/* FIXME */` 箇所（薊野・葛島・鴨部・瀬戸・針木・横浜・久万・みづき）の大街を正しい値に修正
+- [x] `src/constants.ts` 内の `/* FIXME */` 箇所（薊野・葛島・鴨部・瀬戸・針木・横浜・久万・みづき）の大街を正しい値に修正
