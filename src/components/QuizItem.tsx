@@ -1,25 +1,25 @@
-import type { Town, Oomachi } from '../types';
-import type { Answer, GradeResult } from '../utils/quiz';
-import { OOMACHI_LIST } from '../constants';
+import type { Town, Oomachi } from '../types'
+import type { Answer, GradeResult } from '../utils/quiz'
+import { OOMACHI_LIST } from '../constants'
 
 export type QuizItemState = {
-  town: Town;
-  answer: Answer;
-  result: GradeResult | null;
-};
+  town: Town
+  answer: Answer
+  result: GradeResult | null
+}
 
 type QuizItemProps = {
-  index: number;
-  state: QuizItemState;
-  graded: boolean;
-  onChange: (answer: Answer) => void;
-};
+  index: number
+  state: QuizItemState
+  graded: boolean
+  onChange: (answer: Answer) => void
+}
 
 export function QuizItem({ index, state, graded, onChange }: QuizItemProps) {
-  const { town, answer, result } = state;
+  const { town, answer, result } = state
 
-  const readingStatus = graded && result ? (result.reading ? 'correct' : 'incorrect') : '';
-  const oomachiStatus = graded && result ? (result.oomachi ? 'correct' : 'incorrect') : '';
+  const readingStatus = graded && result ? (result.reading ? 'correct' : 'incorrect') : ''
+  const oomachiStatus = graded && result ? (result.oomachi ? 'correct' : 'incorrect') : ''
 
   return (
     <div className="quiz-item">
@@ -47,7 +47,9 @@ export function QuizItem({ index, state, graded, onChange }: QuizItemProps) {
         >
           <option value="">大街を選択</option>
           {OOMACHI_LIST.map((o) => (
-            <option key={o} value={o}>{o}</option>
+            <option key={o} value={o}>
+              {o}
+            </option>
           ))}
         </select>
         {graded && result && !result.oomachi && (
@@ -55,5 +57,5 @@ export function QuizItem({ index, state, graded, onChange }: QuizItemProps) {
         )}
       </div>
     </div>
-  );
+  )
 }

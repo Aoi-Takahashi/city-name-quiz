@@ -1,48 +1,46 @@
-import { useState, useCallback } from 'react';
-import { pickRandomTowns, gradeAnswer } from './utils/quiz';
-import type { Oomachi } from './types';
-import type { Answer } from './utils/quiz';
-import { QuizItem } from './components/QuizItem';
-import type { QuizItemState } from './components/QuizItem';
-import { kochiCityTowns, QUIZ_COUNT } from './constants';
-import './App.css';
+import { useState, useCallback } from 'react'
+import { pickRandomTowns, gradeAnswer } from './utils/quiz'
+import type { Oomachi } from './types'
+import type { Answer } from './utils/quiz'
+import { QuizItem } from './components/QuizItem'
+import type { QuizItemState } from './components/QuizItem'
+import { kochiCityTowns, QUIZ_COUNT } from './constants'
+import './App.css'
 
 function initQuiz(): QuizItemState[] {
   return pickRandomTowns(kochiCityTowns, QUIZ_COUNT).map((town) => ({
     town,
     answer: { reading: '', oomachi: '' as Oomachi },
     result: null,
-  }));
+  }))
 }
 
 export default function App() {
-  const [items, setItems] = useState<QuizItemState[]>(initQuiz);
-  const [graded, setGraded] = useState(false);
+  const [items, setItems] = useState<QuizItemState[]>(initQuiz)
+  const [graded, setGraded] = useState(false)
 
   const handleChange = useCallback((index: number, answer: Answer) => {
-    setItems((prev) =>
-      prev.map((item, i) => (i === index ? { ...item, answer } : item))
-    );
-  }, []);
+    setItems((prev) => prev.map((item, i) => (i === index ? { ...item, answer } : item)))
+  }, [])
 
   const handleGrade = () => {
     setItems((prev) =>
       prev.map((item) => ({
         ...item,
         result: gradeAnswer(item.town, item.answer),
-      }))
-    );
-    setGraded(true);
-  };
+      })),
+    )
+    setGraded(true)
+  }
 
   const handleReset = () => {
-    setItems(initQuiz());
-    setGraded(false);
-  };
+    setItems(initQuiz())
+    setGraded(false)
+  }
 
   const score = graded
     ? items.filter((item) => item.result?.reading && item.result?.oomachi).length
-    : null;
+    : null
 
   return (
     <div className="app">
@@ -69,11 +67,15 @@ export default function App() {
 
       <div className="actions">
         {!graded ? (
-          <button className="btn-grade" onClick={handleGrade}>採点する</button>
+          <button className="btn-grade" onClick={handleGrade}>
+            採点する
+          </button>
         ) : (
-          <button className="btn-reset" onClick={handleReset}>もう一度</button>
+          <button className="btn-reset" onClick={handleReset}>
+            もう一度
+          </button>
         )}
       </div>
     </div>
-  );
+  )
 }
