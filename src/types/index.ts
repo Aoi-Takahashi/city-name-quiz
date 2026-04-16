@@ -31,3 +31,13 @@ export type Town = {
   reading: string
   oomachi: Oomachi
 }
+
+export type Answer = {
+  reading: string
+  oomachi: Oomachi
+}
+
+export type GradeResult = {
+  reading: boolean
+  oomachi: boolean
+}

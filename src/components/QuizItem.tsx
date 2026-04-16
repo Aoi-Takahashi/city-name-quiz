@@ -1,5 +1,4 @@
-import type { Town, Oomachi } from '../types'
-import type { Answer, GradeResult } from '../utils/quiz'
+import type { Town, Oomachi, Answer, GradeResult } from '../types'
 import { OOMACHI_LIST } from '../constants'
 
 export type QuizItemState = {

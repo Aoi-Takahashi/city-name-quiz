@@ -31,7 +31,7 @@ export const OOMACHI_LIST: Oomachi[] = [
   '春野',
 ]
 
-export const kochiCityTowns: Town[] = [
+export const KOCHI_CITY_LIST: Town[] = [
   { name: '上町一丁目', reading: 'かみまちいっちょうめ', oomachi: '上街' },
   { name: '上町二丁目', reading: 'かみまちにちょうめ', oomachi: '上街' },
   { name: '上町三丁目', reading: 'かみまちさんちょうめ', oomachi: '上街' },
@@ -182,7 +182,7 @@ export const kochiCityTowns: Town[] = [
   { name: '山手町', reading: 'やまてちょう', oomachi: '旭街' },
   { name: '横内', reading: 'よこうち', oomachi: '旭街' },
   { name: '口細山', reading: 'くちほそやま', oomachi: '旭街' },
-  { name: '尾立', reading: 'おだち', oomachi: '旭街' },
+  { name: '尾立', reading: 'ひじ', oomachi: '旭街' },
   { name: '蓮台', reading: 'れんだい', oomachi: '旭街' },
   { name: '福井町', reading: 'ふくいちょう', oomachi: '旭街' },
   { name: '福井扇町', reading: 'ふくいおうぎまち', oomachi: '旭街' },

@@ -1,14 +1,14 @@
 import { useState, useCallback } from 'react'
-import { pickRandomTowns, gradeAnswer } from './utils/quiz'
-import type { Oomachi } from './types'
-import type { Answer } from './utils/quiz'
+import { pickRandomTowns } from './utils/pickRandomTowns'
+import { gradeAnswer } from './utils/gradeAnswer'
+import type { Oomachi, Answer } from './types'
 import { QuizItem } from './components/QuizItem'
 import type { QuizItemState } from './components/QuizItem'
-import { kochiCityTowns, QUIZ_COUNT } from './constants'
+import { KOCHI_CITY_LIST, QUIZ_COUNT } from './constants'
 import './App.css'
 
 function initQuiz(): QuizItemState[] {
-  return pickRandomTowns(kochiCityTowns, QUIZ_COUNT).map((town) => ({
+  return pickRandomTowns(KOCHI_CITY_LIST, QUIZ_COUNT).map((town) => ({
     town,
     answer: { reading: '', oomachi: '' as Oomachi },
     result: null,
